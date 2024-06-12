@@ -1,6 +1,6 @@
 # ninja log v6
-22	190	7399102391085876	CMakeFiles/RubiksCubeSolverExplain.dir/GenericRubiksCube.cpp.obj	fb143d28bb504192
-8	476	7399102390945895	CMakeFiles/RubiksCubeSolverExplain.dir/main.cpp.obj	d1744a87619cbca7
-477	630	7399102395636949	RubiksCubeSolverExplain.exe	2e6422652feff223
 5	1108	7399164739500448	CMakeFiles/RubiksCubeSolverExplain.dir/GenericRubiksCube.cpp.obj	fb143d28bb504192
+8	476	7399102390945895	CMakeFiles/RubiksCubeSolverExplain.dir/main.cpp.obj	d1744a87619cbca7
 1109	1228	7399164750537265	RubiksCubeSolverExplain.exe	2e6422652feff223
+3	1035	7399213255534803	CMakeFiles/RubiksCubeSolverExplain.dir/RubiksCube.cpp.obj	f418f3939c3de3b9
+1036	1125	7399213265866844	RubiksCubeSolverExplain.exe	759e08adb775c0bc

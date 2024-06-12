@@ -1,6 +1,6 @@
 //headerguards to prevent multiple inclusion of same headerfile
-#ifndef RUBIKS_CUBE_SOLVER_RUBIKSCUBE // to check whether the macro 'RUBIKS_CUBE_SOLVER_RUBIKSCUBE' has been defined yet or not
-#define RUBIKS_CUBE_SOLVER_RUBIKSCUBE // defines the macro
+#ifndef RUBIKS_CUBE_SOLVER_RUBIKSCUBE_H // to check whether the macro 'RUBIKS_CUBE_SOLVER_RUBIKSCUBE' has been defined yet or not
+#define RUBIKS_CUBE_SOLVER_RUBIKSCUBE_H // defines the macro
 
 #include<bits/stdc++.h>
 using namespace std;
