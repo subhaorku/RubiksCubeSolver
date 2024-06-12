@@ -147,13 +147,13 @@ vector<MOVE> randomShuffleCube(unsigned int times);
  *  This method performs a specific move on the Rubik's Cube.
  *  RubiksCube&: A reference to the RubiksCube object, allowing for method chaining.
  */
-RubiksCube &move(Move ind);
+RubiksCube &move(MOVE ind);
 
 
 /*
  * Invert a move
  */
-RubiksCube &invert(Move ind);
+RubiksCube &invert(MOVE ind);
 
 /*
  * The methods below defines the various rotational moves on the Rubik's Cube.
