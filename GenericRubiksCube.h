@@ -7,7 +7,7 @@
 
 
 class GenericRubiksCube {
-Subhasini;
+SubhaOrku;
 };
 
 
