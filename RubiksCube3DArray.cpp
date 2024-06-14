@@ -11,12 +11,13 @@ private:
                 temp_arr[i][j] = cube[ind][i][j];
             }
         }
-        // These four loops perform a 90-degree clockwise rotation of the face. Here's how it works:
-        // The first loop assigns the left column of temp_arr to the top row of cube[ind].
-        // The second loop assigns the top row of temp_arr to the right column of cube[ind].
-        //The third loop assigns the right column of temp_arr to the bottom row of cube[ind].
-        //The fourth loop assigns the bottom row of temp_arr to the left column of cube[ind].
-
+        /*
+         * These four loops perform a 90-degree clockwise rotation of the face. Here's how it works:
+         *  The first loop assigns the left column of temp_arr to the top row of cube[ind].
+         *  The second loop assigns the top row of temp_arr to the right column of cube[ind].
+         *  The third loop assigns the right column of temp_arr to the bottom row of cube[ind].
+         *   The fourth loop assigns the bottom row of temp_arr to the left column of cube[ind].
+         */
         for (int i = 0; i < 3; i++) cube[ind][0][i] = temp_arr[2 - i][0];
         for (int i = 0; i < 3; i++) cube[ind][i][2] = temp_arr[0][i];
         for (int i = 0; i < 3; i++) cube[ind][2][2 - i] = temp_arr[i][2];
@@ -24,9 +25,10 @@ private:
     }
 public:
     char cube[6][3][3]={}; //declaration of a public member variable 'cube'
-
-    //constructor of the RubiksCube3dArray class
-    //The purpose of this constructor is to initialize the Rubik's Cube to a solved state.
+/*
+ * constructor of the RubiksCube3dArray class
+ * The purpose of this constructor is to initialize the Rubik's Cube to a solved state.
+ */
     RubiksCube3dArray(){
         for (int i = 0; i < 6; i++) { //for 6 diff colors
             for (int j = 0; j < 3; j++) {
@@ -38,9 +40,11 @@ public:
     }
 
     COLOR getColor(FACE face, unsigned row, unsigned col) const override {
-        // The override keyword indicates that this function is intended to override a virtual function in a base class. It tells the compiler to check that the function is indeed overriding a base class function. If it is not, the compiler will generate an error.
-        // The const keyword at the end of the function declaration means that the function is a constant member function
-        // and will not alter the state of the RubiksCube3dArray object.
+        /*
+         * The override keyword indicates that this function is intended to override a virtual function in a base class. It tells the compiler to check that the function is indeed overriding a base class function. If it is not, the compiler will generate an error.
+         * The const keyword at the end of the function declaration means that the function is a constant member function
+         * and will not alter the state of the RubiksCube3dArray object.
+         */
         char color = cube[int(face)][row][col];
         switch (color) {
             case 'B':
@@ -72,9 +76,10 @@ public:
     }
     RubiksCube &u() override {
         this->rotateFace(0);
-        //This line calls the rotateFace function on the upper face of the cube, which is indexed as 0.
-        // The rotateFace function performs a 90-degree clockwise rotation of the specified face.
-
+        /*
+         *This line calls the rotateFace function on the upper face of the cube, which is indexed as 0.
+         * The rotateFace function performs a 90-degree clockwise rotation of the specified face.
+         */
         // A temporary array temp_arr is used to store the edge values of the adjacent faces before they are overwritten.
         char temp_arr[3] = {};
         // These loops shift the edge values of the adjacent faces to their new positions after the upper face rotation.
@@ -242,10 +247,11 @@ public:
 
         return *this;
     }
-
-// This is an overload of the == operator for the RubiksCube3dArray class.
-// It takes a const reference to another RubiksCube3dArray object (r1) as its parameter.
-// The const at the end of the function declaration indicates that this function does not modify the state of the object it is called on.
+/*
+ *This is an overload of the == operator for the RubiksCube3dArray class.
+ *It takes a const reference to another RubiksCube3dArray object (r1) as its parameter.
+ *The const at the end of the function declaration indicates that this function does not modify the state of the object it is called on.
+ */
     bool operator==(const RubiksCube3dArray &r1) const{
         for(int i=0;i<6;i++)
         {
@@ -265,11 +271,11 @@ public:
 
 
 
-
-// This is an overload of the assignment operator (=) for the RubiksCube3dArray class.
-// It takes a const reference to another RubiksCube3dArray object (r1) as its parameter.
-// The return type is a reference to the current object (RubiksCube3dArray &), which allows for assignment chaining.
-
+/*
+ * This is an overload of the assignment operator (=) for the RubiksCube3dArray class.
+ * It takes a const reference to another RubiksCube3dArray object (r1) as its parameter.
+ * The return type is a reference to the current object (RubiksCube3dArray &), which allows for assignment chaining.
+ */
     RubiksCube3dArray &operator= (const RubiksCube3dArray &r1) {
         for(int i=0;i<6;i++) {
             for(int j=0;j<3;j++) {
@@ -287,31 +293,32 @@ public:
 
 struct  Hash3d {
 
-       // operator overload
-       // we are defining function call operator () for Hash3d struct
-       // size_t is the hashed value of the rubiks cube obj
+       /*
+        *  operator overload
+        *   we are defining function call operator () for Hash3d struct
+        *   size_t is the hashed value of the rubiks cube obj
+        */
         size_t operator() (const RubiksCube3dArray &r1) const {
-            string str ="";
-            for(int i=0;i<6;i++)
-            {
-                for(int j=0;j<3;j++)
-                {
-                    for(int k=0;k<3;k++)
-                        str+=r1.cube[i][j][k];
-                }
-            }
+           string str = "";
+           for (int i = 0; i < 6; i++) {
+               for (int j = 0; j < 3; j++) {
+                   for (int k = 0; k < 3; k++)
+                       str += r1.cube[i][j][k];
+               }
+           }
 
-            return hash<string>()(str); // This line creates hashed value of string str
-            // str is passed to functor(function object) to get the hash value
+           return hash<string>()(str); // This line creates hashed value of string str
+           // str is passed to functor(function object) to get the hash value
 
 
 
 
-            // A functor, short for function object, is an object that can be called as if it were a function. In C++, a functor is typically implemented by defining the operator() in a class or struct. This allows an instance of the class or struct to be used in a function call context.
-           //Characteristics of Functors:
-           //State: Functors can maintain state because they are objects.
-           //Operator Overloading: They overload the operator().
-           //Flexibility: They can have member variables and methods, offering more flexibility than regular functions.
-        }
+           /*   A functor, short for function object, is an object that can be called as if it were a function. In C++, a functor is typically implemented by defining the operator() in a class or struct. This allows an instance of the class or struct to be used in a function call context.
+            *  Characteristics of Functors:
+            *   State: Functors can maintain state because they are objects.
+            *   Operator Overloading: They overload the operator().
+            *   Flexibility: They can have member variables and methods, offering more flexibility than regular functions.
+            */
+       }
     };
 
