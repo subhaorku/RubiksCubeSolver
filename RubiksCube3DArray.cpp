@@ -2,8 +2,8 @@
 class RubiksCube3dArray : public RubiksCube     //class RubiksCube3Darray is inherited from RubiksCube class so that it can inherit all public and protected members of RubiksCube
 {
 private:
-
-    void rotateFace(int ind) // parameter ind is the face which is to be rotated
+// This method 'rotateFace' is not needed by the external world , we need it to rotate it internally
+    void rotateFace(int ind) // parameter 'ind' is the face which is to be rotated
     {
         char temp_arr[3][3]= {};
         for(int i=0;i<3;i++) {
@@ -26,6 +26,7 @@ public:
     char cube[6][3][3]={}; //declaration of a public member variable 'cube'
 
     //constructor of the RubiksCube3dArray class
+    //The purpose of this constructor is to initialize the Rubik's Cube to a solved state.
     RubiksCube3dArray(){
         for (int i = 0; i < 6; i++) { //for 6 diff colors
             for (int j = 0; j < 3; j++) {
@@ -242,5 +243,75 @@ public:
         return *this;
     }
 
+// This is an overload of the == operator for the RubiksCube3dArray class.
+// It takes a const reference to another RubiksCube3dArray object (r1) as its parameter.
+// The const at the end of the function declaration indicates that this function does not modify the state of the object it is called on.
+    bool operator==(const RubiksCube3dArray &r1) const{
+        for(int i=0;i<6;i++)
+        {
+            for(int j=0;j<3;j++)
+            {
+                for(int k=0;k<3;k++) {
+                    if (cube[i][j][k] != r1.cube[i][j][k]) return false;
+                    // r1.cube[i][j][k]: Accesses the element at position (i, j, k) in the cube array of r1.
+                    // cube[i][j][k]: Accesses the element at position (i, j, k) in the cube array of the current object.
+                }
+            }
+        }
+       return true;
+    }
+    // This operator overload makes it convenient to compare Rubik's Cube objects for equality.
+
+
+
+
+
+// This is an overload of the assignment operator (=) for the RubiksCube3dArray class.
+// It takes a const reference to another RubiksCube3dArray object (r1) as its parameter.
+// The return type is a reference to the current object (RubiksCube3dArray &), which allows for assignment chaining.
+
+    RubiksCube3dArray &operator= (const RubiksCube3dArray &r1) {
+        for(int i=0;i<6;i++) {
+            for(int j=0;j<3;j++) {
+                for(int k=0;k<3;k++) {
+                    cube[i][j][k]=r1.cube[i][j][k];
+                }
+            }
+        }
+        return *this;
+        // After all cells have been assigned, the function returns a reference to the current object (*this).
+    }
 
 };
+//Hash3d struct defines custom hash function for 'RubiksCube3dArray' objects as keys in hash-based containers like std::unordered_map or std::unordered_set
+
+struct  Hash3d {
+
+       // operator overload
+       // we are defining function call operator () for Hash3d struct
+       // size_t is the hashed value of the rubiks cube obj
+        size_t operator() (const RubiksCube3dArray &r1) const {
+            string str ="";
+            for(int i=0;i<6;i++)
+            {
+                for(int j=0;j<3;j++)
+                {
+                    for(int k=0;k<3;k++)
+                        str+=r1.cube[i][j][k];
+                }
+            }
+
+            return hash<string>()(str); // This line creates hashed value of string str
+            // str is passed to functor(function object) to get the hash value
+
+
+
+
+            // A functor, short for function object, is an object that can be called as if it were a function. In C++, a functor is typically implemented by defining the operator() in a class or struct. This allows an instance of the class or struct to be used in a function call context.
+           //Characteristics of Functors:
+           //State: Functors can maintain state because they are objects.
+           //Operator Overloading: They overload the operator().
+           //Flexibility: They can have member variables and methods, offering more flexibility than regular functions.
+        }
+    };
+
