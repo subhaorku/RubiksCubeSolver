@@ -1,7 +1,22 @@
 # ninja log v6
 5	1108	7399164739500448	CMakeFiles/RubiksCubeSolverExplain.dir/GenericRubiksCube.cpp.obj	fb143d28bb504192
 8	476	7399102390945895	CMakeFiles/RubiksCubeSolverExplain.dir/main.cpp.obj	d1744a87619cbca7
-2	293	7400701858681759	build.ninja	28c850ac38035aad
+2	293	7400949522238355	build.ninja	28c850ac38035aad
 1124	1211	7400677531042867	RubiksCubeSolverExplain.exe	cdbe22b6d4ac54f3
 8	1357	7400151520666471	CMakeFiles/RubiksCubeSolverExplain.dir/RubiksCube.cpp.obj	f418f3939c3de3b9
 4	1123	7400677519850222	CMakeFiles/RubiksCubeSolverExplain.dir/RubiksCube3DArray.cpp.obj	efa4a8bc7d2ae03
+45	1775	7400972314881689	CMakeFiles/RubiksCubeSolverExplain.dir/Model/RubiksCube1DArray.cpp.obj	b645b6438a2518b
+7	1797	7400972314503068	CMakeFiles/RubiksCubeSolverExplain.dir/main.cpp.obj	d1744a87619cbca7
+30	1821	7400972314738172	CMakeFiles/RubiksCubeSolverExplain.dir/Model/RubiksCube3DArray.cpp.obj	e5112f185496577f
+17	1860	7400972314603099	CMakeFiles/RubiksCubeSolverExplain.dir/Model/RubiksCube.cpp.obj	dfd4674c0ba3580d
+1860	2011	7400972333029701	RubiksCubeSolverExplain.exe	e0e0a2253c17d31
+5	1223	7400976550194735	CMakeFiles/RubiksCubeSolverExplain.dir/main.cpp.obj	d1744a87619cbca7
+1223	1336	7400976562381666	RubiksCubeSolverExplain.exe	e0e0a2253c17d31
+5	1155	7400976885580223	CMakeFiles/RubiksCubeSolverExplain.dir/main.cpp.obj	d1744a87619cbca7
+1156	1262	7400976897089533	RubiksCubeSolverExplain.exe	e0e0a2253c17d31
+5	1155	7400977342153291	CMakeFiles/RubiksCubeSolverExplain.dir/main.cpp.obj	d1744a87619cbca7
+1155	1259	7400977353657167	RubiksCubeSolverExplain.exe	e0e0a2253c17d31
+7	1249	7400979317979547	CMakeFiles/RubiksCubeSolverExplain.dir/main.cpp.obj	d1744a87619cbca7
+1249	1374	7400979330404770	RubiksCubeSolverExplain.exe	e0e0a2253c17d31
+4	1156	7400980864693607	CMakeFiles/RubiksCubeSolverExplain.dir/main.cpp.obj	d1744a87619cbca7
+1156	1268	7400980876214695	RubiksCubeSolverExplain.exe	e0e0a2253c17d31
